@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Personal city guides for people who actually live there.' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} — loc_</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --canvas: #E3DFDA;
+    --surface: #F2EFEA;
+    --text: #2A2826;
+    --muted: #8A857D;
+    --accent: #C85A40;
+    --line: #D5D1CB;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Manrope', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+
+  a { color: inherit; }
+</style>
