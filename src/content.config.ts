@@ -6,7 +6,7 @@ const placeSchema = z.object({
   name: z.string(),
   category: z.enum(['breakfast', 'coffee', 'lunch', 'dinner', 'bar', 'culture', 'other']),
   neighborhood: z.string(),
-  price: z.number().min(1).max(3),
+  price: z.number().int().min(1).max(3),
   note: z.string(),
   tip: z.string().optional(),
   maps_url: z.string().url(),
@@ -73,3 +73,11 @@ const cities = defineCollection({
 });
 
 export const collections = { cities };
+
+export type Place = z.infer<typeof placeSchema>;
+export type Neighborhood = z.infer<typeof neighborhoodSchema>;
+export type Rule = z.infer<typeof ruleSchema>;
+export type LexiconEntry = z.infer<typeof lexiconSchema>;
+export type RouteStep = z.infer<typeof routeStepSchema>;
+export type Route = z.infer<typeof routeSchema>;
+export type City = z.infer<typeof citySchema>;
