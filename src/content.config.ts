@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import type { z as zod } from 'zod';
 
 const placeSchema = z.object({
   id: z.string(),
@@ -74,10 +75,10 @@ const cities = defineCollection({
 
 export const collections = { cities };
 
-export type Place = z.infer<typeof placeSchema>;
-export type Neighborhood = z.infer<typeof neighborhoodSchema>;
-export type Rule = z.infer<typeof ruleSchema>;
-export type LexiconEntry = z.infer<typeof lexiconSchema>;
-export type RouteStep = z.infer<typeof routeStepSchema>;
-export type Route = z.infer<typeof routeSchema>;
-export type City = z.infer<typeof citySchema>;
+export type Place = zod.infer<typeof placeSchema>;
+export type Neighborhood = zod.infer<typeof neighborhoodSchema>;
+export type Rule = zod.infer<typeof ruleSchema>;
+export type LexiconEntry = zod.infer<typeof lexiconSchema>;
+export type RouteStep = zod.infer<typeof routeStepSchema>;
+export type Route = zod.infer<typeof routeSchema>;
+export type City = zod.infer<typeof citySchema>;
