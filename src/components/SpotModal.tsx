@@ -1,23 +1,12 @@
 import { useEffect } from 'react';
-
-interface Place {
-  id: string;
-  name: string;
-  category: string;
-  neighborhood: string;
-  price: number;
-  note: string;
-  tip?: string;
-  maps_url: string;
-  image_query: string;
-}
+import type { Place } from '../types/place';
 
 interface SpotModalProps {
   place: Place;
   onClose: () => void;
 }
 
-const PRICE_DOTS = ['', '•', '••', '•••'];
+const PRICE_DOTS: Record<number, string> = { 1: '•', 2: '••', 3: '•••' };
 
 const CATEGORY_LABELS: Record<string, string> = {
   breakfast: 'Breakfast',
@@ -42,7 +31,7 @@ export default function SpotModal({ place, onClose }: SpotModalProps) {
     };
   }, [onClose]);
 
-  const imageUrl = `https://source.unsplash.com/featured/800x600/?${encodeURIComponent(place.image_query)}`;
+  const imageUrl = `https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/800/600`;
 
   return (
     <div
@@ -55,6 +44,9 @@ export default function SpotModal({ place, onClose }: SpotModalProps) {
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="spot-modal-title"
         style={{
           background: '#F2EFEA', borderRadius: '4px', overflow: 'hidden',
           maxWidth: '860px', width: '100%', maxHeight: '90vh',
@@ -90,10 +82,10 @@ export default function SpotModal({ place, onClose }: SpotModalProps) {
               </span>
               <span style={{ color: '#D5D1CB' }}>·</span>
               <span style={{ fontSize: '13px', color: '#8A857D' }}>
-                {PRICE_DOTS[place.price]}
+                {PRICE_DOTS[place.price] ?? ''}
               </span>
             </div>
-            <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: '28px', fontWeight: 400, lineHeight: 1.15 }}>
+            <h2 id="spot-modal-title" style={{ fontFamily: "'Instrument Serif', serif", fontSize: '28px', fontWeight: 400, lineHeight: 1.15 }}>
               {place.name}
             </h2>
             <p style={{ fontSize: '12px', color: '#8A857D', marginTop: '4px' }}>{place.neighborhood}</p>
