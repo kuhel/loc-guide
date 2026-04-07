@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SpotGrid from '../../components/SpotGrid';
+import StickyNav from '../../components/StickyNav';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cities = await getCollection('cities');
+  return cities.map((city) => ({
+    params: { city: city.data.meta.slug },
+    props: { cityEntry: city },
+  }));
+}
+
+const { cityEntry } = Astro.props;
+const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
+const allCities = await getCollection('cities');
+const otherCities = allCities.map((c) => ({ slug: c.data.meta.slug, name: c.data.meta.name }));
+---
+<Layout title={meta.name} description={meta.intro}>
+  <!-- Hero: full-viewport image with centered city name -->
+  <section id="top" class="hero">
+    <img
+      src={meta.hero_image ?? `https://picsum.photos/seed/${meta.slug}/2000/1000`}
+      alt={meta.name}
+      class="hero-img"
+    />
+    <div class="hero-overlay"></div>
+
+    <!-- City picker -->
+    <header class="hero-header">
+      <div class="city-picker">
+        {otherCities.map((c, i) => (
+          <>
+            {i > 0 && <span class="city-picker-sep">/</span>}
+            <a
+              href={`/${c.slug}`}
+              class={`city-option${c.slug === meta.slug ? ' city-option--active' : ''}`}
+            >{c.name}</a>
+          </>
+        ))}
+      </div>
+    </header>
+
+    <h1 class="hero-title">{meta.name}</h1>
+    <div class="hero-branding">
+      <div class="hero-branding-line"></div>
+      <span class="hero-branding-text">loc<span class="hero-branding-accent">_</span></span>
+      <span class="hero-branding-sub">Local Guide Series</span>
+    </div>
+  </section>
+
+  <!-- Intro: standalone paragraph below hero -->
+  <section id="intro" class="section intro-section">
+    <div class="section-inner">
+      <p class="intro-text">{meta.intro}</p>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  {neighborhoods.length > 0 && (
+    <section class="section neighborhoods-section">
+      <div class="section-inner">
+        <h2 class="section-title">The Lay of the Land</h2>
+        <div class="neighborhoods-grid">
+          {neighborhoods.map((n) => (
+            <div class="neighborhood-card">
+              <h3 class="n-name">{n.name}</h3>
+              <p class="n-vibe">{n.vibe}</p>
+              <p class="n-insider"><strong>Insider:</strong> {n.insider}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Rules -->
+  {rules.length > 0 && (
+    <section id="rules" class="section rules-section">
+      <div class="section-inner">
+        <h2 class="section-title">The Rules</h2>
+        <div class="rules-list">
+          {rules.map((rule, i) => (
+            <div class="rule-item">
+              <span class="rule-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <p class="rule-title">{rule.title}</p>
+                <p class="rule-body">{rule.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Spots -->
+  <section id="spots" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">The Spots</h2>
+      <SpotGrid places={places} client:load />
+    </div>
+  </section>
+
+  <!-- Routes -->
+  {routes.length > 0 && (
+  <section id="itineraries" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Routes</h2>
+      <div class="routes-list">
+        {routes.map((route) => (
+          <ItineraryCard
+            slug={route.slug}
+            citySlug={meta.slug}
+            title={route.title}
+            duration={route.duration}
+            vibe={route.vibe}
+            cost={route.cost}
+            description={route.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  )}
+
+  <!-- Lexicon -->
+  {lexicon.length > 0 && (
+  <section id="lexicon" class="section lexicon-section">
+    <div class="section-inner">
+      <div class="lexicon-layout">
+        <div class="lexicon-header">
+          <h2 class="lexicon-title">Vernacular</h2>
+          <span class="lexicon-subtitle">Phrases for survival</span>
+          <p class="lexicon-desc">Do not attempt to use these if you lack the conviction. They are provided for comprehension, not necessarily for your adoption.</p>
+        </div>
+        <ul class="lexicon-list">
+          {lexicon.map((entry) => (
+            <li class="lexicon-item">
+              <span class="word">{entry.word}</span>
+              <span class="pronunciation">{entry.pronunciation}</span>
+              <p class="meaning">{entry.meaning}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+  )}
+
+  <!-- End of Transmission -->
+  <div class="eot-block">
+    <span class="eot-text">End of Transmission.</span>
+  </div>
+
+  <StickyNav client:load />
+</Layout>
+
+<style>
+  /* Hero */
+  .hero-header {
+    position: absolute; top: 0; left: 0;
+    width: 100%; padding: 2rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 10;
+  }
+  .city-picker {
+    display: flex; align-items: center; gap: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+  }
+  .city-option {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none; cursor: pointer; transition: opacity 0.2s;
+  }
+  .city-option--active { color: #fff; opacity: 1; }
+  .city-picker-sep { color: rgba(255,255,255,0.4); font-weight: 300; }
+
+  .hero {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #E3DBCC;
+  }
+  .hero-img {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+    filter: brightness(0.9) contrast(1.1);
+  }
+  .hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(61,74,138,0.05) 100%);
+    pointer-events: none;
+  }
+  .hero-title {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif); font-size: 22vw; font-weight: 400;
+    color: #ffffff; line-height: 0.8; letter-spacing: -0.02em;
+    z-index: 5; white-space: nowrap; pointer-events: none;
+  }
+  .hero-branding {
+    position: absolute; bottom: 18%; left: 50%;
+    transform: translateX(-50%);
+    text-align: center; z-index: 5;
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+  }
+  .hero-branding-line { width: 30px; height: 1px; background: rgba(255,255,255,0.4); }
+  .hero-branding-text {
+    font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
+    color: rgba(255,255,255,0.7); letter-spacing: 0.25em; text-transform: uppercase; padding-top: 0.5rem;
+  }
+  .hero-branding-accent { color: var(--accent); }
+  .hero-branding-sub {
+    font-family: var(--sans); font-size: 0.65rem;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* Intro */
+  .intro-section { padding: 80px 0; }
+  .intro-text {
+    font-size: 1.35rem; line-height: 1.6; font-weight: 300;
+    color: var(--text); max-width: 60ch;
+  }
+
+  /* Sections */
+  .section { padding: 80px 0; }
+  .section + .section { border-top: 1px solid var(--line); }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+  .section-title {
+    font-family: var(--serif); font-size: 36px; font-weight: 400;
+    margin-bottom: 40px; color: var(--text);
+  }
+
+  /* Neighborhoods */
+  .neighborhoods-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+  }
+  .neighborhood-card {
+    padding: 24px; background: var(--surface);
+    border-radius: 4px; border: 1px solid var(--line);
+  }
+  .n-name { font-family: var(--serif); font-size: 22px; font-weight: 400; margin-bottom: 8px; }
+  .n-vibe { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+  .n-insider { font-size: 13px; line-height: 1.6; }
+
+  /* Rules */
+  .rules-list { display: flex; flex-direction: column; gap: 0; }
+  .rule-item {
+    display: flex; gap: 24px; padding: 24px 0;
+    border-bottom: 1px solid var(--line); align-items: flex-start;
+  }
+  .rule-num { font-family: var(--serif); font-size: 18px; color: var(--accent); min-width: 36px; padding-top: 2px; }
+  .rule-title { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 8px; }
+  .rule-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* Routes */
+  .routes-list { display: flex; flex-direction: column; gap: 16px; }
+
+  /* Lexicon */
+  .lexicon-section { padding-top: 10rem; padding-bottom: 10rem; }
+  .lexicon-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+  .lexicon-header { display: flex; flex-direction: column; }
+  .lexicon-title {
+    font-family: var(--serif); font-size: 4rem; font-weight: 400;
+    line-height: 1.1; margin-bottom: 1rem; color: var(--text);
+  }
+  .lexicon-subtitle {
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--muted); display: block; margin-bottom: 1rem;
+  }
+  .lexicon-desc { font-size: 0.9rem; color: var(--muted); max-width: 30ch; margin-top: 1rem; line-height: 1.5; }
+  .lexicon-list { list-style: none; border-top: 1px solid var(--line); }
+  .lexicon-item {
+    display: grid; grid-template-columns: 2fr 1fr 3fr;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--line); align-items: baseline;
+  }
+  .word { font-family: var(--serif); font-size: 1.8rem; color: var(--accent); }
+  .pronunciation { font-size: 0.75rem; color: var(--muted); font-family: monospace; letter-spacing: -0.02em; padding-right: 1rem; }
+  .meaning { font-size: 0.95rem; line-height: 1.5; color: var(--text); }
+
+  /* Footer */
+  .eot-block {
+    padding: 8rem 4vw; text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    border-top: 1px solid var(--line);
+  }
+  .eot-text {
+    font-family: var(--serif); font-size: 4rem; font-style: italic;
+    color: var(--accent); opacity: 0.5; letter-spacing: -0.02em;
+  }
+  .site-footer {
+    padding: 2rem 4vw; display: flex; justify-content: center; align-items: center;
+    background: var(--canvas); border-top: 1px solid var(--line);
+  }
+  .footer-copy { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .section-inner { padding: 0 24px; }
+    .lexicon-layout { grid-template-columns: 1fr; }
+    .lexicon-item { grid-template-columns: 1fr; gap: 4px; }
+    .lexicon-section { padding-top: 4rem; padding-bottom: 4rem; }
+  }
+</style>

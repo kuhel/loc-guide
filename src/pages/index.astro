@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CityCard from '../components/CityCard.astro';
+import { getCollection } from 'astro:content';
+
+const cities = await getCollection('cities');
+---
+<Layout title="loc_" description="Biased city guides from people who live there.">
+  <main>
+    <header class="site-header">
+      <span class="logo">loc_</span>
+      <p class="subtitle">Biased city guides from people who live there.</p>
+    </header>
+    <div class="grid">
+      {cities.map((city) => (
+        <CityCard
+          slug={city.data.meta.slug}
+          name={city.data.meta.name}
+          country={city.data.meta.country}
+          tagline={city.data.meta.tagline}
+          cover_gradient={city.data.meta.cover_gradient}
+        />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main { min-height: 100vh; padding: 60px 40px; }
+  .site-header {
+    margin-bottom: 48px;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--text);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 24px;
+  }
+</style>

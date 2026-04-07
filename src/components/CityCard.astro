@@ -1,0 +1,75 @@
+---
+interface Props {
+  slug: string;
+  name: string;
+  country: string;
+  tagline: string;
+  cover_gradient: [string, string];
+}
+const { slug, name, country, tagline, cover_gradient } = Astro.props;
+const gradientStyle = `background: linear-gradient(135deg, ${cover_gradient[0]}, ${cover_gradient[1]})`;
+---
+<a href={`/${slug}`} class="city-card">
+  <div class="card-bg" style={gradientStyle}></div>
+  <div class="card-content">
+    <p class="country">{country}</p>
+    <h2 class="name">{name}</h2>
+    <p class="tagline">{tagline}</p>
+    <span class="enter">Enter →</span>
+  </div>
+</a>
+
+<style>
+  .city-card {
+    position: relative;
+    display: block;
+    height: 420px;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s ease;
+  }
+  .city-card:hover { transform: translateY(-2px); }
+  .card-bg {
+    position: absolute;
+    inset: 0;
+  }
+  .card-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .country {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 8px;
+  }
+  .name {
+    font-family: var(--serif);
+    font-size: 52px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .tagline {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+    max-width: 320px;
+    margin-bottom: 24px;
+  }
+  .enter {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    opacity: 0.9;
+  }
+</style>

@@ -1,0 +1,54 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# editor
+.idea/
+.vscode/
+
+# source photos (processed versions live in public/images/)
+src/pics/
+
+# raw source data / exports
+Barcelona_data/
+Istanbul_data/
+Barcelona.zip
+Istanbul.zip
+
+# design prototypes
+city_page.js
+itinerary.js
+main-page.js
+react-app.js
+"react-app (1).js"
+"react-app (2).js"
+
+# internal planning docs
+docs/
+.superpowers/
+ARCHITECTURE.md
+
+# test output
+test-results/
+
+#etc
+.claude/
+src/pics/
