@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SpotGrid from '../../components/SpotGrid';
+import StickyNav from '../../components/StickyNav';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cities = await getCollection('cities');
+  return cities.map((city) => ({
+    params: { city: city.data.meta.slug },
+  }));
+}
+
+const { city: citySlug } = Astro.params;
+const cityEntry = await getEntry('cities', citySlug as string);
+if (!cityEntry) return Astro.redirect('/');
+const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
+---
+<Layout title={meta.name} description={meta.intro}>
+  <!-- Hero -->
+  <section id="intro" class="hero">
+    <div class="hero-inner">
+      <p class="country-label">{meta.country}</p>
+      <h1 class="city-name">{meta.name}</h1>
+      <p class="tagline">{meta.tagline}</p>
+      <p class="intro">{meta.intro}</p>
+    </div>
+  </section>
+
+  <!-- Neighborhoods -->
+  {neighborhoods.length > 0 && (
+    <section class="section neighborhoods-section">
+      <div class="section-inner">
+        <h2 class="section-title">The Lay of the Land</h2>
+        <div class="neighborhoods-grid">
+          {neighborhoods.map((n) => (
+            <div class="neighborhood-card">
+              <h3 class="n-name">{n.name}</h3>
+              <p class="n-vibe">{n.vibe}</p>
+              <p class="n-insider"><strong>Insider:</strong> {n.insider}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Rules -->
+  {rules.length > 0 && (
+    <section class="section rules-section">
+      <div class="section-inner">
+        <h2 class="section-title">The Rules</h2>
+        <div class="rules-list">
+          {rules.map((rule, i) => (
+            <div class="rule-item">
+              <span class="rule-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <p class="rule-title">{rule.title}</p>
+                <p class="rule-body">{rule.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Spots -->
+  <section id="spots" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">The Spots</h2>
+      <SpotGrid places={places} client:load />
+    </div>
+  </section>
+
+  <!-- Routes -->
+  <section id="itineraries" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Routes</h2>
+      <div class="routes-list">
+        {routes.map((route) => (
+          <ItineraryCard
+            slug={route.slug}
+            citySlug={meta.slug}
+            title={route.title}
+            duration={route.duration}
+            vibe={route.vibe}
+            cost={route.cost}
+            description={route.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lexicon -->
+  <section id="lexicon" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">The Vernacular</h2>
+      <div class="lexicon-list">
+        {lexicon.map((entry) => (
+          <div class="lexicon-item">
+            <div class="word-col">
+              <span class="word">{entry.word}</span>
+              <span class="pronunciation">{entry.pronunciation}</span>
+            </div>
+            <p class="meaning">{entry.meaning}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <StickyNav client:load />
+</Layout>
+
+<style>
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 80px 0 60px;
+    background: var(--canvas);
+  }
+  .hero-inner { max-width: 720px; padding: 0 48px; }
+  .country-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .city-name {
+    font-family: var(--serif);
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+  .tagline {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  .intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    max-width: 560px;
+  }
+
+  .section { padding: 80px 0; }
+  .section + .section { border-top: 1px solid var(--line); }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: var(--text);
+  }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .neighborhood-card {
+    padding: 24px;
+    background: var(--surface);
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+  .n-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .n-vibe {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .n-insider { font-size: 13px; line-height: 1.6; }
+
+  .rules-list { display: flex; flex-direction: column; gap: 0; }
+  .rule-item {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: flex-start;
+  }
+  .rule-num {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--accent);
+    min-width: 36px;
+    padding-top: 2px;
+  }
+  .rule-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .rule-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  .routes-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .lexicon-list { display: flex; flex-direction: column; gap: 0; }
+  .lexicon-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .word-col { display: flex; flex-direction: column; gap: 4px; }
+  .word { font-family: var(--serif); font-size: 22px; }
+  .pronunciation { font-size: 12px; color: var(--accent); letter-spacing: 0.04em; }
+  .meaning { font-size: 14px; line-height: 1.7; color: var(--text); }
+</style>
