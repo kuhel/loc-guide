@@ -47,12 +47,14 @@ const { route, cityMeta } = Astro.props;
           <div class="step-content">
             <h3 class="step-name">{step.place_name}</h3>
             <p class="step-note">{step.note}</p>
-            <a
-              href={step.maps_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="maps-link"
-            >↗ Open in Maps</a>
+            {step.maps_url && (
+              <a
+                href={step.maps_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="maps-link"
+              >↗ Open in Maps</a>
+            )}
           </div>
         </div>
       ))}
@@ -129,7 +131,6 @@ const { route, cityMeta } = Astro.props;
     width: 1px;
     background: var(--line);
     margin-top: 12px;
-    margin-right: -1px;
     align-self: stretch;
     min-height: 40px;
   }
