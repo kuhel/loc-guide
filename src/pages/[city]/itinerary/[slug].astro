@@ -1,0 +1,171 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const cities = await getCollection('cities');
+  const paths = [];
+  for (const city of cities) {
+    for (const route of city.data.routes) {
+      paths.push({
+        params: { city: city.data.meta.slug, slug: route.slug },
+        props: { route, cityMeta: city.data.meta },
+      });
+    }
+  }
+  return paths;
+}
+
+const { route, cityMeta } = Astro.props;
+---
+<Layout title={route.title} description={route.description}>
+  <div class="page">
+    <!-- Back link -->
+    <a href={`/${cityMeta.slug}`} class="back-link">← {cityMeta.name}</a>
+
+    <!-- Header -->
+    <header class="route-header">
+      <div class="route-meta">
+        <span class="meta-tag">{route.vibe}</span>
+        <span class="divider">·</span>
+        <span class="meta-detail">{route.duration}</span>
+        <span class="divider">·</span>
+        <span class="meta-detail">{route.cost}</span>
+      </div>
+      <h1 class="route-title">{route.title}</h1>
+      <p class="route-desc">{route.description}</p>
+    </header>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      {route.steps.map((step, i) => (
+        <div class="step">
+          <div class="step-left">
+            <span class="step-time">{step.time}</span>
+            {i < route.steps.length - 1 && <div class="step-line" />}
+          </div>
+          <div class="step-content">
+            <h3 class="step-name">{step.place_name}</h3>
+            <p class="step-note">{step.note}</p>
+            <a
+              href={step.maps_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="maps-link"
+            >↗ Open in Maps</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 48px 120px;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 40px;
+  }
+  .back-link:hover { color: var(--text); }
+  .route-header { margin-bottom: 64px; }
+  .route-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .meta-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .divider { color: var(--line); }
+  .meta-detail { font-size: 12px; color: var(--muted); }
+  .route-title {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .route-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 560px;
+  }
+
+  .timeline { display: flex; flex-direction: column; }
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    padding-bottom: 48px;
+  }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 4px;
+    position: relative;
+  }
+  .step-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .step-line {
+    flex: 1;
+    width: 1px;
+    background: var(--line);
+    margin-top: 12px;
+    margin-right: -1px;
+    align-self: stretch;
+    min-height: 40px;
+  }
+  .step-content { padding-top: 2px; }
+  .step-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .step-note {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .maps-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 5px 12px;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+  .maps-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 32px 24px 80px; }
+    .step { grid-template-columns: 64px 1fr; gap: 16px; }
+  }
+</style>
