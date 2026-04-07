@@ -3,18 +3,17 @@ import Layout from '../../layouts/Layout.astro';
 import SpotGrid from '../../components/SpotGrid';
 import StickyNav from '../../components/StickyNav';
 import ItineraryCard from '../../components/ItineraryCard.astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const cities = await getCollection('cities');
   return cities.map((city) => ({
     params: { city: city.data.meta.slug },
+    props: { cityEntry: city },
   }));
 }
 
-const { city: citySlug } = Astro.params;
-const cityEntry = await getEntry('cities', citySlug as string);
-if (!cityEntry) return Astro.redirect('/');
+const { cityEntry } = Astro.props;
 const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
 ---
 <Layout title={meta.name} description={meta.intro}>
@@ -75,6 +74,7 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
   </section>
 
   <!-- Routes -->
+  {routes.length > 0 && (
   <section id="itineraries" class="section">
     <div class="section-inner">
       <h2 class="section-title">Routes</h2>
@@ -93,8 +93,10 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
       </div>
     </div>
   </section>
+  )}
 
   <!-- Lexicon -->
+  {lexicon.length > 0 && (
   <section id="lexicon" class="section">
     <div class="section-inner">
       <h2 class="section-title">The Vernacular</h2>
@@ -111,6 +113,7 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
       </div>
     </div>
   </section>
+  )}
 
   <StickyNav client:load />
 </Layout>
@@ -228,4 +231,11 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
   .word { font-family: var(--serif); font-size: 22px; }
   .pronunciation { font-size: 12px; color: var(--accent); letter-spacing: 0.04em; }
   .meaning { font-size: 14px; line-height: 1.7; color: var(--text); }
+
+  @media (max-width: 640px) {
+    .hero-inner { padding: 0 24px; }
+    .section-inner { padding: 0 24px; }
+    .lexicon-item { grid-template-columns: 1fr; gap: 8px; }
+    .city-name { line-height: 1; }
+  }
 </style>
