@@ -1,4 +1,4 @@
-# loc_ Guide
+# loc_ guide
 
 An opinionated city guide. Not a list of everything — a short list of things worth your time, written by someone who spent enough time in each city to have opinions.
 
