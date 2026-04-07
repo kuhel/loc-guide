@@ -41,41 +41,46 @@ function SpotCard({ place, onClick }: { place: Place; onClick: () => void }) {
         transition: 'transform 0.15s ease, box-shadow 0.15s ease',
       }}
     >
-      <img
-        src={`https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/400/280`}
-        alt={place.name}
-        style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }}
-        loading="lazy"
-      />
+      <div style={{ aspectRatio: '4/5', overflow: 'hidden' }}>
+        <img
+          src={`https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/400/500`}
+          alt={place.name}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            filter: hovered ? 'grayscale(0%) contrast(1.1)' : 'grayscale(20%) contrast(1.1)',
+            transform: hovered ? 'scale(1.03)' : 'scale(1)',
+            transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease',
+          }}
+          loading="lazy"
+        />
+      </div>
       <div style={{ padding: '16px 18px 18px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-          <h3 style={{
-            fontFamily: "'Instrument Serif', serif",
-            fontSize: '18px',
-            fontWeight: 400,
-            lineHeight: 1.2,
-            color: '#2A2826',
-          }}>
-            {place.name}
-          </h3>
-          <span style={{ fontSize: '12px', color: '#8A857D', marginLeft: '8px', flexShrink: 0 }}>
-            {PRICE_DOTS[place.price] ?? ''}
-          </span>
-        </div>
-        <p style={{ fontSize: '11px', color: '#8A857D', marginBottom: '8px' }}>{place.neighborhood}</p>
-        <span style={{
-          display: 'inline-block',
-          fontSize: '10px',
-          fontWeight: 600,
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase' as const,
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          fontSize: '0.7rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
           color: '#C85A40',
-          background: 'rgba(200,90,64,0.08)',
-          padding: '3px 8px',
-          borderRadius: '2px',
+          marginBottom: '0.5rem',
         }}>
-          {CATEGORY_LABELS[place.category] ?? place.category}
-        </span>
+          <span>{CATEGORY_LABELS[place.category] ?? place.category}</span>
+          <span>{PRICE_DOTS[place.price] ?? ''}</span>
+        </div>
+        <h3 style={{
+          fontFamily: "'Instrument Serif', serif",
+          fontSize: '18px',
+          fontWeight: 400,
+          lineHeight: 1.2,
+          color: '#2A2826',
+          marginBottom: '6px',
+        }}>
+          {place.name}
+        </h3>
+        <p style={{ fontSize: '11px', color: '#8A857D' }}>{place.neighborhood}</p>
       </div>
     </button>
   );
