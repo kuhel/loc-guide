@@ -5,7 +5,11 @@
     "country": "Turkey",
     "tagline": "A city so large the edges are a different timezone.",
     "intro": "Istanbul is enormous — larger than any city you've been to. From the western edge of the European side to the eastern edge of the Asian side it stretches over 100 kilometres. The Bosphorus runs through the middle, and the best way to understand the city is to cross it repeatedly, by ferry, watching the skyline rearrange itself.",
-    "cover_gradient": ["#8B7355", "#5C4A3A"]
+    "cover_gradient": [
+      "#8B7355",
+      "#5C4A3A"
+    ],
+    "hero_image": "/images/istanbul/hero.webp"
   },
   "places": [
     {
@@ -17,7 +21,8 @@
       "note": "The canonical croissant shop, with excellent pastries beyond just croissants. There's always a queue, even 15 minutes before opening. If the wait is too long, there's a takeaway window with the main varieties. Grab a bag, cross the road, walk through the park towards the canal opposite Fenerbahçe stadium, and picnic on a bench in the sun.",
       "tip": "The takeaway window moves faster than the queue for the full shop.",
       "maps_url": "https://www.google.com/maps/place/Brekkie+Croissant+%26+Cookie/@40.9878245,29.031598,15.09z/data=!4m5!3m4!1s0x14cab9c52f2f90f5:0xac947cd211a1406a!8m2!3d40.9862387!4d29.0330407",
-      "image_query": "istanbul croissant bakery breakfast"
+      "image_query": "istanbul croissant bakery breakfast",
+      "image": "/images/istanbul/brekkie-croissant.webp"
     },
     {
       "id": "croissantci",
@@ -27,7 +32,8 @@
       "price": 1,
       "note": "Opened by two charming Turkish women who speak excellent English and enjoy small talk — a genuine rarity and a pleasure. Recently renovated, so you can now sit inside with a croissant sandwich or other sweet European pastry. All eight varieties tried were excellent. Mark of quality for Istanbul: they use actual Italian salami in the Italian sandwich.",
       "maps_url": "https://goo.gl/maps/dJ2zT9mrdofsu7gbA",
-      "image_query": "istanbul cozy breakfast cafe croissant"
+      "image_query": "istanbul cozy breakfast cafe croissant",
+      "image": "/images/istanbul/croissantci.webp"
     },
     {
       "id": "cesme-bazlama",
@@ -37,7 +43,8 @@
       "price": 1,
       "note": "Very popular with tourists from the Middle East — unlimited gözleme is the main draw. Thin flatbreads with filling, made non-stop by grandmothers on an open kitchen, with cheese, spinach, or potato. The flatbreads are genuinely excellent. Arrive early or expect to wait.",
       "maps_url": "https://goo.gl/maps/gS19RvxVytsGfHfC8",
-      "image_query": "istanbul gozleme flatbread turkish breakfast"
+      "image_query": "istanbul gozleme flatbread turkish breakfast",
+      "image": "/images/istanbul/cesme-bazlama.webp"
     },
     {
       "id": "van-kahvalti",
@@ -47,7 +54,8 @@
       "price": 2,
       "note": "A solid, classic Turkish breakfast spread. Unlimited tea served in tulip glasses throughout. The kind of breakfast that becomes the whole morning — cheeses, olives, honey, clotted cream, bread, eggs. No decisions required, everything just arrives.",
       "maps_url": "https://goo.gl/maps/NJqtEZ2ZrxP9EnyLA",
-      "image_query": "istanbul turkish breakfast spread van kahvalti"
+      "image_query": "istanbul turkish breakfast spread van kahvalti",
+      "image": "/images/istanbul/van-kahvalti.webp"
     },
     {
       "id": "arada",
@@ -57,7 +65,8 @@
       "price": 2,
       "note": "Characterful and stylish, with an overwhelming Lebanese breakfast spread. Treat it as an attraction in itself for the sheer number and variety of dishes. Their breakfast is a literal illustration of the phrase 'table groaning with food'.",
       "maps_url": "https://goo.gl/maps/BpujRAVvX4CdGZTP9",
-      "image_query": "istanbul lebanese breakfast mezze spread"
+      "image_query": "istanbul lebanese breakfast mezze spread",
+      "image": "/images/istanbul/arada.webp"
     },
     {
       "id": "metet-koze-doner",
@@ -68,7 +77,8 @@
       "note": "A spot from a local celebrity chef who champions Turkish cuisine and kebabs. One of the best mercimek (yellow lentil) soups in the city. The best iskender kebab — served on a pillow of bread, drenched in melted butter and tomato sauce, with yoghurt alongside. If iskender feels like too much, order the Beyti Kebap — less butter-heavy and incredible. The neighbourhood itself is lovely: community gardens nearby, a waterfront promenade, and a park with steep hills and a Bosphorus viewpoint.",
       "tip": "The district around the restaurant is excellent for walking — community gardens, waterfront, and a hilltop Bosphorus view all within a 10-minute walk.",
       "maps_url": "https://www.google.com/maps/place/Metet+K%C3%B6zde+D%C3%B6ner,+Kuzguncuk/@41.0352605,29.0215965,15z/data=!4m5!3m4!1s0x14cab7e9dc9b5815:0x2296b2fa6613bef9!8m2!3d41.0352644!4d29.0303642",
-      "image_query": "istanbul iskender kebab turkish food"
+      "image_query": "istanbul iskender kebab turkish food",
+      "image": "/images/istanbul/metet-koze-doner.webp"
     },
     {
       "id": "vefali-kofteci",
@@ -78,7 +88,8 @@
       "price": 1,
       "note": "The best köfte in Istanbul. Hands down. Perfect bite-sized, perfect meat, perfect juiciness. Accompanied by a miraculous lentil soup blended with something creamy and tomato-y that defies accurate description. Owned by a good-natured elderly Turk who isn't always in the building. Far from the tourist areas, but an excellent option after Prince Islands — take the ferry back to Bostancı and eat here before heading home.",
       "maps_url": "https://www.google.com/maps/place/Vefal%C4%B1+K%C3%B6fteci/@40.9648574,29.0727451,17z/data=!3m1!4b1!4m5!3m4!1s0x14cac7096362bedd:0xa243fcf94230d910!8m2!3d40.9648554!4d29.0749365",
-      "image_query": "istanbul kofte meatball turkish lunch"
+      "image_query": "istanbul kofte meatball turkish lunch",
+      "image": "/images/istanbul/vefali-kofteci.webp"
     },
     {
       "id": "yeni-lokanta",
@@ -89,7 +100,8 @@
       "note": "Contemporary Turkish tasting menu: in one sitting you can try almost everything in Turkish cuisine, from manti and kokorec to sorbet. Remarkably reasonable: €60 for an 11–12 course menu, the same again for wine pairing with a different glass every two courses. The kind of restaurant that makes you understand what the cuisine is actually capable of.",
       "tip": "The wine pairing is worth doing — Turkish wine is the whole revelation alongside the food.",
       "maps_url": "https://www.google.com/maps/place/Yeni+Lokanta/@41.0262191,28.9709359,15z/data=!4m5!3m4!1s0x14cab9e0851af0a5:0x4ea7cd502d773958!8m2!3d41.0294751!4d28.9755764",
-      "image_query": "istanbul fine dining contemporary turkish cuisine"
+      "image_query": "istanbul fine dining contemporary turkish cuisine",
+      "image": "/images/istanbul/yeni-lokanta.webp"
     },
     {
       "id": "rita-deli",
@@ -99,7 +111,8 @@
       "price": 2,
       "note": "'The best pastrami sandwich outside New York.' That's the claim. It's hard to argue after you've eaten it.",
       "maps_url": "https://www.google.com/maps/place/Rita+Deli/@40.9878779,29.024969,16.66z/data=!4m5!3m4!1s0x14cab96ad38f9153:0xb52e0c043e7ce880!8m2!3d40.9843234!4d29.0260465",
-      "image_query": "istanbul deli sandwich pastrami"
+      "image_query": "istanbul deli sandwich pastrami",
+      "image": "/images/istanbul/rita-deli.webp"
     },
     {
       "id": "inari-omakase",
@@ -110,7 +123,8 @@
       "note": "Istanbul sushi is only better at Nobu, but Nobu is a chain and slightly dull. Here: excellent sushi, solid Japanese cuisine overall, great English-speaking service. Best reached by ferry to Arnavutkoy — the waterfront walk to the restaurant is part of the experience.",
       "tip": "Arrive by ferry to Arnavutkoy and walk along the waterfront. The approach matters.",
       "maps_url": "https://goo.gl/maps/ntcZ7k2jARMPw4J9A",
-      "image_query": "istanbul japanese omakase sushi"
+      "image_query": "istanbul japanese omakase sushi",
+      "image": "/images/istanbul/inari-omakase.webp"
     },
     {
       "id": "trattoria-la-scarpetta",
@@ -120,7 +134,8 @@
       "price": 3,
       "note": "Probably the best Italian restaurant in Istanbul. The pizza is as close to Italian as anywhere in the city. Notable: the only place we found Mikkeller on the beer list. The restaurant is inside a mansion with a magnificent courtyard. A strange and lovely thing to find here.",
       "maps_url": "https://goo.gl/maps/n2st7j9Eg7LwNHiG8",
-      "image_query": "istanbul italian restaurant mansion courtyard"
+      "image_query": "istanbul italian restaurant mansion courtyard",
+      "image": "/images/istanbul/trattoria-la-scarpetta.webp"
     },
     {
       "id": "grungy",
@@ -130,7 +145,8 @@
       "price": 2,
       "note": "The best burgers in Istanbul. Hands down.",
       "maps_url": "https://goo.gl/maps/U4d8EUWoSqswfyg98",
-      "image_query": "istanbul burger restaurant casual"
+      "image_query": "istanbul burger restaurant casual",
+      "image": "/images/istanbul/grungy.webp"
     },
     {
       "id": "foxy-nisantasi",
@@ -141,17 +157,8 @@
       "note": "The best wine bar we visited. Almost all wine is Turkish — interestingly non-obvious, not the stuff you'd expect. Everything is available by the glass, the list updates regularly, and the staff know what they're talking about. The smoked anchovy snack is simply extraordinary.",
       "tip": "Ask what's new on the list. They take it seriously and change it often.",
       "maps_url": "https://www.google.com/maps/place/Foxy+Ni%C5%9Fanta%C5%9F%C4%B1/@41.0468407,28.9876773,16.33z/data=!4m5!3m4!1s0x14cab7adaed0f2e5:0x24e77938d72e8e47!8m2!3d41.050311!4d28.9902163",
-      "image_query": "istanbul wine bar nisantasi"
-    },
-    {
-      "id": "viktor-levi",
-      "name": "Viktor Levi Şarap Evi",
-      "category": "bar",
-      "neighborhood": "Kadıköy (Asian Side)",
-      "price": 2,
-      "note": "Open your soul to basic Turkish wine. All wines from this producer are simply numbered — no names, no varietals listed, no pretension. Relax and trust fate. The wine is good. The attitude is better.",
-      "maps_url": "https://www.google.com/maps/place/Viktor+Levi+%C5%9Earap+Evi/@40.9841206,29.023766,17z/data=!4m13!1m7!3m6!1s0x14cab96ad38f9153:0xb52e0c043e7ce880!2sRita+Deli!8m2!3d40.9843234!4d29.0260465!10e5!3m4!1s0x0:0xaf17ef036cfbef8d!8m2!3d40.9873422!4d29.0260749",
-      "image_query": "istanbul natural wine bar cozy"
+      "image_query": "istanbul wine bar nisantasi",
+      "image": "/images/istanbul/foxy-nisantasi.webp"
     },
     {
       "id": "solera-winery",
@@ -162,7 +169,8 @@
       "note": "Very popular with Russian-speaking expats, and for good reason — wide selection of Turkish wine in a pleasant setting. Sit on the terrace when the weather allows, or take a bottle of orange Chamlija or red Kuzeybag Oguzgozu to go.",
       "tip": "The orange Chamlija is the best introduction to Turkish wine for the uncertain.",
       "maps_url": "https://goo.gl/maps/yZp4QcMasDpdVs8V6",
-      "image_query": "istanbul wine terrace bosphorus"
+      "image_query": "istanbul wine terrace bosphorus",
+      "image": "/images/istanbul/solera-winery.webp"
     },
     {
       "id": "probador-colectiva",
@@ -172,7 +180,8 @@
       "price": 1,
       "note": "Probably the best specialty coffee in Istanbul. The people running it are the healthy kind of obsessive — nerds and experimenters. You may encounter a Russian-speaking barista called Bogdan. Say hello.",
       "maps_url": "https://goo.gl/maps/5NEQ6aKvSxGcR36k8",
-      "image_query": "istanbul specialty coffee shop arnavutkoy"
+      "image_query": "istanbul specialty coffee shop arnavutkoy",
+      "image": "/images/istanbul/probador-colectiva.webp"
     },
     {
       "id": "wohha-coffee",
@@ -182,7 +191,8 @@
       "price": 1,
       "note": "A pocket of chilled near-Scandinavia in one of Istanbul's most relaxed and unhurried neighbourhoods. Good specialty coffee, good ceramics to take home as a memento. An excuse to enjoy Arnavutkoy and its old wooden houses. Come here by ferry — it's the only correct way to arrive.",
       "maps_url": "https://goo.gl/maps/cZr2VqCLH7geH47u6",
-      "image_query": "istanbul coffee shop ceramics arnavutkoy wooden house"
+      "image_query": "istanbul coffee shop ceramics arnavutkoy wooden house",
+      "image": "/images/istanbul/wohha-coffee.webp"
     },
     {
       "id": "backyard",
@@ -192,7 +202,8 @@
       "price": 2,
       "note": "One of my favourite spots for lazy weekend brunches, tucked among summer houses on a hillside. The breakfasts are simply good — but the main event is the open courtyard in good weather and the views from the hill. From here you can walk down to Arnavutkoy and continue chilling along the waterfront. Get here by taxi; walk back down.",
       "maps_url": "https://goo.gl/maps/q62VeZ27FUMBCiJa9",
-      "image_query": "istanbul garden brunch terrace bosphorus view"
+      "image_query": "istanbul garden brunch terrace bosphorus view",
+      "image": "/images/istanbul/backyard.webp"
     },
     {
       "id": "st-regis-brasserie",
@@ -202,7 +213,8 @@
       "price": 3,
       "note": "A fancier establishment with a terrace. Good mushroom or seafood risotto. A place to decompress after exhausting yourself in Prada / Hermès / Louis Vuitton / Rolex. The terrace watches the street with appropriate detachment.",
       "maps_url": "https://goo.gl/maps/nufmRdYMvPETG1VG7",
-      "image_query": "istanbul luxury brasserie terrace nisantasi"
+      "image_query": "istanbul luxury brasserie terrace nisantasi",
+      "image": "/images/istanbul/st-regis-brasserie.webp"
     },
     {
       "id": "sakip-sabanci-museum",
@@ -213,7 +225,8 @@
       "note": "Museum in a modernised 1925 mansion with permanent collection of Islamic calligraphy and the surprisingly Europeanised works of the last Ottoman sultan. Interesting temporary exhibitions — Hockney's Normandy landscapes were here in July. Next to the museum, a large hilly park that's especially beautiful in April during tulip season.",
       "tip": "The surrounding park alone is worth the trip in April when the tulips are in season.",
       "maps_url": "https://goo.gl/maps/dga9BzoAZbhieXCX8",
-      "image_query": "sakip sabanci museum istanbul mansion bosphorus"
+      "image_query": "sakip sabanci museum istanbul mansion bosphorus",
+      "image": "/images/istanbul/sakip-sabanci-museum.webp"
     },
     {
       "id": "suleymaniye-hamami",
@@ -224,7 +237,8 @@
       "note": "Purely touristic — it has to be, since this is a mixed-gender hamam; locals only go separately. The hamam is ancient (16th century) and authentic; it feels like they've only added modern toilets and a few electric bulbs since then. At the start you lie on a marble slab at about 40 degrees in near-total silence — there's a chance you'll catch a pleasant altered state. Then comes the foam-washing procedure mixed with massage. Afterwards you feel cleaner than you've ever been in your life. Around €70 per person.",
       "tip": "The silence on the marble slab at the start is the whole point. Don't rush it.",
       "maps_url": "https://www.google.com/maps/place/S%C3%BCleymaniye+Hamam%C4%B1/@41.0009132,28.953156,14.13z/data=!4m5!3m4!1s0x14cab9f2b03e6e6d:0x2eb6222f7a8b2f74!8m2!3d41.0158204!4d28.9656007",
-      "image_query": "suleymaniye hamam istanbul historic bath"
+      "image_query": "suleymaniye hamam istanbul historic bath",
+      "image": "/images/istanbul/suleymaniye-hamami.webp"
     },
     {
       "id": "prince-islands",
@@ -235,7 +249,8 @@
       "note": "Three islands in the Sea of Marmara, 1+ hours by ferry from the European terminals (Kabataş, Eminönü), also stopping on the Asian side (Kadıköy). Beaches are paid and quality scales with price. The cheapest give you a plastic sunlounger without a mat. Be aware there may be jellyfish when the water is cooler. Noya Beach has a seawater pool and pontoon for open-sea swimming. Entry around €14.",
       "tip": "Take the ferry from Kadıköy on the return — you pass through the Asian side and can continue to Vefalı Köfteci for dinner.",
       "maps_url": "https://goo.gl/maps/131nSzTmh8rsTDYA7",
-      "image_query": "buyukada prince islands istanbul ferry beach"
+      "image_query": "buyukada prince islands istanbul ferry beach",
+      "image": "/images/istanbul/prince-islands.webp"
     }
   ],
   "neighborhoods": [
@@ -303,32 +318,32 @@
   "lexicon": [
     {
       "word": "Çay",
-      "pronunciation": "CHAI",
+      "pronunciation": "tʃaj",
       "meaning": "Tea. Not coffee. Tea is the default drink for everything, served in a tulip glass, constantly, everywhere, with two sugar cubes on the saucer. Refusing it is possible but confusing to the host."
     },
     {
       "word": "Merhaba",
-      "pronunciation": "mer-HA-ba",
+      "pronunciation": "merˈhaba",
       "meaning": "Hello. Learnable in three seconds. Worth a thousand goodwills."
     },
     {
       "word": "İyi günler",
-      "pronunciation": "ee-YEE GOON-ler",
+      "pronunciation": "iˈji ˈɡynler",
       "meaning": "Good day. Used when entering or leaving a shop. Using it makes you a person rather than a tourist."
     },
     {
       "word": "Köfte",
-      "pronunciation": "KOFF-teh",
+      "pronunciation": "ˈkøfte",
       "meaning": "Meatball, but much more — a whole tradition of spiced ground meat pressed onto skewers or formed by hand. Every neighbourhood has its champion köfteci."
     },
     {
       "word": "İnşallah",
-      "pronunciation": "in-SHA-lah",
+      "pronunciation": "inˈʃallah",
       "meaning": "God willing. In practice: 'maybe', 'we'll see', 'I'm not sure that will happen', or 'I've stopped caring'. Context determines which. All are valid interpretations."
     },
     {
       "word": "Hoş geldiniz",
-      "pronunciation": "HOSH gel-di-NIZ",
+      "pronunciation": "hoʃ ɡeldiˈniz",
       "meaning": "Welcome. Said to guests entering any establishment. The correct response is Hoş bulduk — 'We found it pleasant.' Knowing this response earns disproportionate delight."
     }
   ],
@@ -345,37 +360,36 @@
           "time": "09:00",
           "place_name": "Ferry from Eminönü or Kabataş to Kadıköy",
           "note": "Cross the Bosphorus. 20 minutes, ₺20 on Istanbul Card. The view of the Old City skyline from the water is the correct introduction to Istanbul. Arrive at Kadıköy ferry terminal.",
-          "maps_url": "https://goo.gl/maps/TbVp1FPULCqBccWP6"
+          "maps_url": "https://goo.gl/maps/TbVp1FPULCqBccWP6",
+          "image": "/images/istanbul/ferry.webp"
         },
         {
           "time": "09:30",
           "place_name": "Brekkie Croissant & Cookie",
           "note": "The canonical croissant queue. If it's too long, use the takeaway window. Grab a bag and walk through the park towards the canal opposite Fenerbahçe stadium for a bench breakfast.",
-          "maps_url": "https://www.google.com/maps/place/Brekkie+Croissant+%26+Cookie/@40.9878245,29.031598,15.09z/data=!4m5!3m4!1s0x14cab9c52f2f90f5:0xac947cd211a1406a!8m2!3d40.9862387!4d29.0330407"
-        },
-        {
-          "time": "10:30",
-          "place_name": "Viktor Levi Şarap Evi",
-          "note": "Yes, wine at 10:30am. The wines are numbered, not named — you're drinking blind on trust. Order a glass, sit, watch the neighbourhood wake up. This is exactly what the place is for.",
-          "maps_url": "https://www.google.com/maps/place/Viktor+Levi+%C5%9Earap+Evi/@40.9841206,29.023766,17z/data=!4m13!1m7!3m6!1s0x14cab96ad38f9153:0xb52e0c043e7ce880!2sRita+Deli!8m2!3d40.9843234!4d29.0260465!10e5!3m4!1s0x0:0xaf17ef036cfbef8d!8m2!3d40.9873422!4d29.0260749"
+          "maps_url": "https://www.google.com/maps/place/Brekkie+Croissant+%26+Cookie/@40.9878245,29.031598,15.09z/data=!4m5!3m4!1s0x14cab9c52f2f90f5:0xac947cd211a1406a!8m2!3d40.9862387!4d29.0330407",
+          "image": "/images/istanbul/brekkie-croissant.webp"
         },
         {
           "time": "12:00",
           "place_name": "Metet Közde Döner (Kuzguncuk)",
           "note": "Take a taxi or walk (30 minutes) north along the waterfront to Kuzguncuk. Lunch at the celebrity chef's kebab spot. Get the Beyti Kebap if iskender feels like too much. The lentil soup is mandatory regardless.",
-          "maps_url": "https://www.google.com/maps/place/Metet+K%C3%B6zde+D%C3%B6ner,+Kuzguncuk/@41.0352605,29.0215965,15z/data=!4m5!3m4!1s0x14cab7e9dc9b5815:0x2296b2fa6613bef9!8m2!3d41.0352644!4d29.0303642"
+          "maps_url": "https://www.google.com/maps/place/Metet+K%C3%B6zde+D%C3%B6ner,+Kuzguncuk/@41.0352605,29.0215965,15z/data=!4m5!3m4!1s0x14cab7e9dc9b5815:0x2296b2fa6613bef9!8m2!3d41.0352644!4d29.0303642",
+          "image": "/images/istanbul/metet-koze-doner.webp"
         },
         {
           "time": "13:00",
           "place_name": "Kuzguncuk Neighborhood Walk",
           "note": "Walk off lunch through the neighbourhood. Main street, community organic garden, wooden houses. Then climb the hill to the park for the Bosphorus viewpoint. The view from the top is the payoff.",
-          "maps_url": "https://goo.gl/maps/pbgK5Dv69GuEBHmt6"
+          "maps_url": "https://goo.gl/maps/pbgK5Dv69GuEBHmt6",
+          "image": "/images/istanbul/kuzguncuk-walk.webp"
         },
         {
           "time": "14:00",
           "place_name": "Ferry back to Eminönü",
           "note": "Take the ferry back from Üsküdar (a short taxi or walk from Kuzguncuk). The return crossing gives you the best view of the old city skyline — Topkapı, Hagia Sophia, the Blue Mosque — in the afternoon light.",
-          "maps_url": "https://goo.gl/maps/WtpbRSdU1bqmBkE89"
+          "maps_url": "https://goo.gl/maps/WtpbRSdU1bqmBkE89",
+          "image": "/images/istanbul/eminonu.webp"
         }
       ]
     }

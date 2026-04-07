@@ -4,9 +4,11 @@ import type { Place } from '../types/place';
 interface SpotModalProps {
   place: Place;
   onClose: () => void;
+  onPrev?: () => void;
+  onNext?: () => void;
 }
 
-const PRICE_DOTS: Record<number, string> = { 1: '•', 2: '••', 3: '•••' };
+const PRICE_DOTS: Record<number, string> = { 1: '€', 2: '€€', 3: '€€€' };
 
 const CATEGORY_LABELS: Record<string, string> = {
   breakfast: 'Breakfast',
@@ -18,10 +20,12 @@ const CATEGORY_LABELS: Record<string, string> = {
   other: 'Other',
 };
 
-export default function SpotModal({ place, onClose }: SpotModalProps) {
+export default function SpotModal({ place, onClose, onPrev, onNext }: SpotModalProps) {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') onPrev?.();
+      if (e.key === 'ArrowRight') onNext?.();
     };
     document.addEventListener('keydown', handleKey);
     document.body.style.overflow = 'hidden';
@@ -29,9 +33,11 @@ export default function SpotModal({ place, onClose }: SpotModalProps) {
       document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = '';
     };
-  }, [onClose]);
+  }, [onClose, onPrev, onNext]);
 
-  const imageUrl = `https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/800/600`;
+  const imageUrl = place.image
+    ? place.image.replace(/\.webp$/, '-full.webp')
+    : `https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/800/600`;
 
   return (
     <div
@@ -43,6 +49,40 @@ export default function SpotModal({ place, onClose }: SpotModalProps) {
       }}
       onClick={onClose}
     >
+      {onPrev && (
+        <button
+          onClick={(e) => { e.stopPropagation(); onPrev(); }}
+          aria-label="Previous spot"
+          style={{
+            position: 'fixed', left: '16px', top: '50%', transform: 'translateY(-50%)',
+            background: 'rgba(249,247,241,0.95)', border: '1px solid #D5D1CB',
+            borderRadius: '50%', width: '44px', height: '44px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', color: '#2A2826', zIndex: 1001,
+          }}
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+      )}
+      {onNext && (
+        <button
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          aria-label="Next spot"
+          style={{
+            position: 'fixed', right: '16px', top: '50%', transform: 'translateY(-50%)',
+            background: 'rgba(249,247,241,0.95)', border: '1px solid #D5D1CB',
+            borderRadius: '50%', width: '44px', height: '44px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', color: '#2A2826', zIndex: 1001,
+          }}
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      )}
       <div
         role="dialog"
         aria-modal="true"
@@ -55,7 +95,7 @@ export default function SpotModal({ place, onClose }: SpotModalProps) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div style={{ position: 'relative', minHeight: '400px' }}>
+        <div style={{ position: 'relative', minHeight: '400px', background: '#E3DFDA', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img
             src={imageUrl}
             alt={place.name}

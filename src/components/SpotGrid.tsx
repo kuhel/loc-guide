@@ -17,7 +17,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   other: 'Other',
 };
 
-const PRICE_DOTS: Record<number, string> = { 1: '•', 2: '••', 3: '•••' };
+const PRICE_DOTS: Record<number, string> = { 1: '€', 2: '€€', 3: '€€€' };
 
 const CATEGORY_ORDER = ['all', 'breakfast', 'coffee', 'lunch', 'dinner', 'bar', 'culture', 'other'];
 
@@ -43,7 +43,7 @@ function SpotCard({ place, onClick }: { place: Place; onClick: () => void }) {
     >
       <div style={{ aspectRatio: '4/5', overflow: 'hidden' }}>
         <img
-          src={`https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/400/500`}
+          src={place.image ?? `https://picsum.photos/seed/${encodeURIComponent(place.image_query)}/400/500`}
           alt={place.name}
           style={{
             width: '100%',
@@ -88,7 +88,7 @@ function SpotCard({ place, onClick }: { place: Place; onClick: () => void }) {
 
 export default function SpotGrid({ places }: SpotGridProps) {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   const presentCategories = CATEGORY_ORDER.filter(
     (cat) => cat === 'all' || places.some((p) => p.category === cat)
@@ -97,6 +97,8 @@ export default function SpotGrid({ places }: SpotGridProps) {
   const filtered = activeCategory === 'all'
     ? places
     : places.filter((p) => p.category === activeCategory);
+
+  const selectedPlace = selectedIdx !== null ? filtered[selectedIdx] ?? null : null;
 
   return (
     <div>
@@ -127,12 +129,17 @@ export default function SpotGrid({ places }: SpotGridProps) {
         gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
         gap: '20px',
       }}>
-        {filtered.map((place) => (
-          <SpotCard key={place.id} place={place} onClick={() => setSelectedPlace(place)} />
+        {filtered.map((place, idx) => (
+          <SpotCard key={place.id} place={place} onClick={() => setSelectedIdx(idx)} />
         ))}
       </div>
-      {selectedPlace && (
-        <SpotModal place={selectedPlace} onClose={() => setSelectedPlace(null)} />
+      {selectedPlace && selectedIdx !== null && (
+        <SpotModal
+          place={selectedPlace}
+          onClose={() => setSelectedIdx(null)}
+          onPrev={selectedIdx > 0 ? () => setSelectedIdx(selectedIdx - 1) : undefined}
+          onNext={selectedIdx < filtered.length - 1 ? () => setSelectedIdx(selectedIdx + 1) : undefined}
+        />
       )}
     </div>
   );

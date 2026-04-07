@@ -5,7 +5,11 @@
     "country": "Spain",
     "tagline": "A city that schedules lunch at 2pm and expects you to comply.",
     "intro": "Barcelona doesn't do tourist-friendly hours. Lunch is at 2pm. Dinner starts at 9pm. The city runs on its own internal clock and has absolutely no interest in adjusting it for you. Once you sync up, everything else falls into place.",
-    "cover_gradient": ["#C17A5E", "#8B6F5C"]
+    "cover_gradient": [
+      "#C17A5E",
+      "#8B6F5C"
+    ],
+    "hero_image": "/images/barcelona/hero.webp"
   },
   "places": [
     {
@@ -16,7 +20,8 @@
       "price": 2,
       "note": "If there was ever a misleading name, it's Bar Brutal. There's nothing brutal about it — unless you count the assault on your preconceptions of what natural wine can be. The place is cosier than a hamster in a wool sock, and the wine list is longer than a politician's promises. Their vegetable dishes are so refined they could move a meat-eater to tears. Try the roasted beet with goat cheese — it's essentially a love letter to your taste buds.",
       "maps_url": "https://maps.app.goo.gl/YN7rZTmraTp9oP3C7",
-      "image_query": "barcelona natural wine bar interior"
+      "image_query": "barcelona natural wine bar interior",
+      "image": "/images/barcelona/bar-brutal.webp"
     },
     {
       "id": "la-pepita",
@@ -26,7 +31,8 @@
       "price": 2,
       "note": "La Pepita is like that quirky friend who always knows the best hidden spots. Bright, unpretentious, and absolutely alive. The natural wines are curated with the same care you'd expect from a rare stamp collector. On the vegetable front, the grilled asparagus with romesco sauce is so good it should come with an addictiveness warning.",
       "maps_url": "https://maps.app.goo.gl/mpLLSviQwPhsCgRA8",
-      "image_query": "barcelona wine bar tapas"
+      "image_query": "barcelona wine bar tapas",
+      "image": "/images/barcelona/la-pepita.webp"
     },
     {
       "id": "garage-bar",
@@ -36,7 +42,8 @@
       "price": 2,
       "note": "Hidden in a narrow Barcelona alley with no bright signs or neon lights. Inside: half-dark, walls covered in old posters and hand-labelled wine bottles. The man behind the bar wore a worn jacket and had the air of someone who knows more about life than he lets on. He offered a glass of house vermouth and recommended the vegetable tapas. The dishes were so refined I found myself reconsidering my relationship with simple food.",
       "maps_url": "https://maps.app.goo.gl/gzHEDByX1TyBBCSZA",
-      "image_query": "barcelona underground wine bar"
+      "image_query": "barcelona underground wine bar",
+      "image": "/images/barcelona/garage-bar.webp"
     },
     {
       "id": "maldita-barra",
@@ -46,7 +53,8 @@
       "price": 2,
       "note": "Stylish in the way that a bar from Moscow or St. Petersburg might be — sleek interior, soft lighting, an atmosphere that promises something special. The wine list reads less like a menu and more like an encyclopedia of natural wines from around the world. Every bottle selected with the precision of a high-performance engine. The kitchen turns vegetables into a culinary art form: try the caramelised cauliflower with walnut sauce — unexpected and gripping, like driving a mountain road in an open car.",
       "maps_url": "https://maps.app.goo.gl/CvFzHjEaeaUtPuoG7",
-      "image_query": "barcelona moody wine bar night"
+      "image_query": "barcelona moody wine bar night",
+      "image": "/images/barcelona/maldita-barra.webp"
     },
     {
       "id": "colmado-wilmot",
@@ -56,7 +64,8 @@
       "price": 1,
       "note": "A neighbourhood wine bar with provisions to pick from the counter. No performance, no curation anxiety. Just good wine, cold cuts, and locals.",
       "maps_url": "https://maps.app.goo.gl/ZRz1YKrvBYKrHTnk9",
-      "image_query": "barcelona neighbourhood wine shop"
+      "image_query": "barcelona neighbourhood wine shop",
+      "image": "/images/barcelona/colmado-wilmot.webp"
     },
     {
       "id": "casa-mariol",
@@ -67,7 +76,8 @@
       "note": "A vermuteria specialising in house-made vermouth. Simple interior, friendly staff, pleasant atmosphere without trying too hard. Order the vermouth negroni and the tuna and avocado tapas. Stay longer than you planned.",
       "tip": "The house vermouth negroni is better than anything they could order in from outside.",
       "maps_url": "https://maps.app.goo.gl/Ee5BD9R6EHjQrn5y9",
-      "image_query": "barcelona vermuteria vermouth aperitivo"
+      "image_query": "barcelona vermuteria vermouth aperitivo",
+      "image": "/images/barcelona/casa-mariol.webp"
     },
     {
       "id": "mediamanga",
@@ -77,7 +87,8 @@
       "price": 3,
       "note": "New project from the team behind Mont Bar, same chef, similar kitchen. Small plates done with the kind of technical confidence that makes it look effortless. Book ahead.",
       "maps_url": "https://maps.app.goo.gl/jY5hMaQE9P1SWuLr7",
-      "image_query": "barcelona fine dining small plates"
+      "image_query": "barcelona fine dining small plates",
+      "image": "/images/barcelona/mediamanga.webp"
     },
     {
       "id": "el-raco-de-laguir",
@@ -87,7 +98,8 @@
       "price": 2,
       "note": "The best paella we had in Barcelona. Not the tourist-trap rice pans served at €30 near the beach — proper paella, made correctly, eaten at 2pm with a carafe of house white.",
       "maps_url": "https://maps.app.goo.gl/wpqRWDSuHyEAiCpm8",
-      "image_query": "barcelona paella restaurant"
+      "image_query": "barcelona paella restaurant",
+      "image": "/images/barcelona/el-raco-de-laguir.webp"
     },
     {
       "id": "monestir-de-pedralbes",
@@ -98,7 +110,8 @@
       "note": "The first time I visited Barcelona, I thought the city had exhausted itself for me in three days. A Catalan man in a kaftan stopped me in a café: 'Have you been to Monestir de Pedralbes?' I hadn't. He smiled: 'Then you don't know Barcelona.' I went the next day. The monastery met me with a silence absent from every tourist path. White walls, green gardens, the whisper of centuries-old stone. Frescoes by Ferrer Bassa — the 'Catalan Giotto' — breathe deep spirituality in the Chapel of Saint Michael. The cloister, one of the largest Gothic cloisters in the world, has orange trees at the centre and an ancient fountain. No Ramblas chaos. Just you and a monastery standing on a hill like a guardian of time.",
       "tip": "Come on a weekday morning. You may have it almost entirely to yourself.",
       "maps_url": "https://maps.app.goo.gl/Lbw8aZ5spSg2xeJWA",
-      "image_query": "monestir pedralbes barcelona gothic cloister"
+      "image_query": "monestir pedralbes barcelona gothic cloister",
+      "image": "/images/barcelona/monestir-de-pedralbes.webp"
     },
     {
       "id": "sarria-neighborhood",
@@ -108,7 +121,8 @@
       "price": 1,
       "note": "After Monestir de Pedralbes, I wondered what else Barcelona hid from tourists. I found Sarrià — where the city changes its face entirely. Narrow streets, quiet squares, grand estates behind wrought-iron gates and tall cypresses. The old town of Sarrià was once a separate village, a retreat for Barcelona's aristocracy. Start at Plaça de Sarrià for coffee under old plane trees, then walk Major de Sarrià for traditional shops and the best ensaïmadas in the city. Turn onto Carrer de Jaume Piquet — elegant early-20th century mansions, each a small architectural masterpiece. Don't miss Casa Orlandai, now a cultural centre with a garden ideal for a break.",
       "maps_url": "https://maps.app.goo.gl/ZRxSpPKRQxesnuBK7",
-      "image_query": "sarria barcelona quiet street village"
+      "image_query": "sarria barcelona quiet street village",
+      "image": "/images/barcelona/sarria-neighborhood.webp"
     },
     {
       "id": "les-tres-xemeneies",
@@ -118,7 +132,8 @@
       "price": 2,
       "note": "Three enormous chimneys from a 1970s thermal power station on the left bank of the Besòs River. Closed in 2011, reopened for the first time in history as a Manifesta 15 venue. Presentations inside the former turbine hall and outside in the surrounding industrial landscape. A monument to the people who built it.",
       "maps_url": "https://www.google.com/maps/search/?api=1&query=41.42662453268057,2.232768989687544",
-      "image_query": "barcelona three chimneys power station industrial"
+      "image_query": "barcelona three chimneys power station industrial",
+      "image": "/images/barcelona/les-tres-xemeneies.webp"
     },
     {
       "id": "gustavo-gili",
@@ -128,7 +143,8 @@
       "price": 1,
       "note": "The former home of the Gustavo Gili publishing house — the first to publish Berger, Koolhaas, Munari, and Lupton in Spanish. Designed in the 1950s by Joaquim Gili and Francesc Bassó in modernist style, FAD Prize winner in 1961. Now Manifesta 15 headquarters. The 'brain' of the biennial programme.",
       "maps_url": "https://www.google.com/maps/search/?api=1&query=41.38623961228931,2.147575625107267",
-      "image_query": "barcelona eixample modernist architecture building"
+      "image_query": "barcelona eixample modernist architecture building",
+      "image": "/images/barcelona/gustavo-gili.webp"
     },
     {
       "id": "monastery-sant-cugat",
@@ -138,17 +154,8 @@
       "price": 1,
       "note": "A Benedictine Abbey founded in the 9th century, completed in the 14th. Romanesque, Gothic, Renaissance, and Baroque all coexist here without apparent conflict. Its 12th-century Romanesque cloister — over 30 metres long with finely decorated capitals — is the main event. Located within the Collserola mountains, 30 minutes from central Barcelona.",
       "maps_url": "https://www.google.com/maps/search/?api=1&query=41.473982813792375,2.084720343118372",
-      "image_query": "sant cugat monastery romanesque cloister"
-    },
-    {
-      "id": "mac-prison",
-      "name": "M|A|C Prison (Mataró)",
-      "category": "culture",
-      "neighborhood": "Mataró",
-      "price": 2,
-      "note": "Built in 1863 as the first panoptic prison in Spain, it housed political prisoners under Franco and closed in 1967. Since 2022 it's been Mataró Art Contemporani — a contemporary art centre. A former centre of repression converted into a point of cultural freedom. The Manifesta 15 programme continues this inversion.",
-      "maps_url": "https://www.google.com/maps/search/?api=1&query=41.54170306398549,2.443571208015127",
-      "image_query": "mataro prison architecture panopticon museum"
+      "image_query": "sant cugat monastery romanesque cloister",
+      "image": "/images/barcelona/monastery-sant-cugat.webp"
     },
     {
       "id": "casa-gomis",
@@ -159,7 +166,8 @@
       "note": "A private modernist family house built between 1947 and 1963 by Antoni Bonet i Castellana, next to Barcelona airport and a protected lagoon. Ricardo Gomis was a founding member of CLUB49, which hosted Tàpies, Miró, and Brossa. The house sits in a pine forest facing the Mediterranean — a place of meeting, exchange, and experimentation until CLUB49 dissolved. Declared a Cultural Interest Asset in 2021. Book your timeslot in advance: access without a reservation is not granted.",
       "tip": "Book timeslot at manifesta15.org/casa-gomis-reservation before visiting.",
       "maps_url": "https://www.google.com/maps/search/?api=1&query=41.29050214782203,2.1054766049822353",
-      "image_query": "casa gomis la ricarda modernist house barcelona"
+      "image_query": "casa gomis la ricarda modernist house barcelona",
+      "image": "/images/barcelona/casa-gomis.webp"
     },
     {
       "id": "natural-science-museum-granollers",
@@ -169,7 +177,8 @@
       "price": 1,
       "note": "The Natural Science Museum of Granollers (MCNG) bridges culture and nature through geology, botany, palaeontology and zoology. Two buildings: La Tela, a Catalan Art Nouveau house inside a garden, and a modern annexe. A Catalan reference centre for butterfly, bat and small mammal monitoring programmes. 30 minutes from Barcelona by R2 train.",
       "maps_url": "https://www.google.com/maps/search/?api=1&query=41.60187492181913,2.287637389512227",
-      "image_query": "granollers natural science museum art nouveau"
+      "image_query": "granollers natural science museum art nouveau",
+      "image": "/images/barcelona/natural-science-museum-granollers.webp"
     }
   ],
   "neighborhoods": [
@@ -236,34 +245,39 @@
   ],
   "lexicon": [
     {
-      "word": "Seny",
-      "pronunciation": "SEN-ee",
-      "meaning": "The Catalan quality of good sense and measured restraint. Invoked to explain why Catalonia is not quite Spain, and why the Catalan character is what it is."
-    },
-    {
       "word": "Gràcies",
-      "pronunciation": "GRA-si-es",
+      "pronunciation": "ˈɡɾasi.əs",
       "meaning": "Thank you, in Catalan. Using it — however broken — earns immediate goodwill. Don't say 'gracias' in a local bar."
     },
     {
       "word": "Vermut",
-      "pronunciation": "ber-MOOT",
+      "pronunciation": "bərˈmut",
       "meaning": "Vermouth. But also: the entire Sunday aperitivo ritual. The drink and the practice share the name."
     },
     {
       "word": "Tío / Tía",
-      "pronunciation": "TEE-oh / TEE-ah",
+      "pronunciation": "ˈti.o · ˈti.a",
       "meaning": "Dude / mate. Spanish slang used constantly in Barcelona regardless of Catalan preference."
     },
     {
-      "word": "Ànims",
-      "pronunciation": "AH-nims",
-      "meaning": "Encouragement. Said to marathon runners, people carrying heavy groceries, and Catalans facing any kind of difficulty."
+      "word": "Calçotada",
+      "pronunciation": "kəlsəˈtaðə",
+      "meaning": "The late winter ritual of grilling spring onions (calçots) over fire and eating them with romesco sauce. A full social event, not a side dish."
     },
     {
-      "word": "Calçotada",
-      "pronunciation": "kal-so-TA-da",
-      "meaning": "The late winter ritual of grilling spring onions (calçots) over fire and eating them with romesco sauce. A full social event, not a side dish."
+      "word": "Adeu",
+      "pronunciation": "əˈðew",
+      "meaning": "Goodbye, in Catalan. Technically from \"a Déu\" — \"to God\". Used casually; not solemn."
+    },
+    {
+      "word": "Bon Dia",
+      "pronunciation": "bon ˈdi.ə",
+      "meaning": "Good morning. Say it to the shopkeeper, the barman, the person in the lift. It opens doors."
+    },
+    {
+      "word": "Si us plau",
+      "pronunciation": "si uz ˈplaw",
+      "meaning": "Please. Harder to say than \"por favor\" and gets a better reaction for exactly that reason."
     }
   ],
   "routes": [
@@ -303,7 +317,8 @@
           "time": "17:00",
           "place_name": "Sarrià Neighborhood Walk",
           "note": "Walk downhill through the old Sarrià village. Major de Sarrià for ensaïmadas, then meander through the estate streets. This is Barcelona without Barcelona.",
-          "maps_url": "https://maps.app.goo.gl/ZRxSpPKRQxesnuBK7"
+          "maps_url": "https://maps.app.goo.gl/ZRxSpPKRQxesnuBK7",
+          "image": "/images/barcelona/sarria-neighborhood.webp"
         },
         {
           "time": "19:30",

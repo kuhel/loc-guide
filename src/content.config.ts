@@ -12,6 +12,7 @@ const placeSchema = z.object({
   tip: z.string().optional(),
   maps_url: z.string().url(),
   image_query: z.string(),
+  image: z.string().optional(),
 });
 
 const neighborhoodSchema = z.object({
@@ -40,6 +41,7 @@ const routeStepSchema = z.object({
   place_name: z.string(),
   note: z.string(),
   maps_url: z.string().url(),
+  image: z.string().optional(),
 });
 
 const routeSchema = z.object({
@@ -60,6 +62,7 @@ const citySchema = z.object({
     tagline: z.string(),
     intro: z.string(),
     cover_gradient: z.tuple([z.string(), z.string()]),
+    hero_image: z.string().optional(),
   }),
   places: z.array(placeSchema),
   neighborhoods: z.array(neighborhoodSchema),

@@ -15,16 +15,34 @@ export async function getStaticPaths() {
 
 const { cityEntry } = Astro.props;
 const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
+const allCities = await getCollection('cities');
+const otherCities = allCities.map((c) => ({ slug: c.data.meta.slug, name: c.data.meta.name }));
 ---
 <Layout title={meta.name} description={meta.intro}>
   <!-- Hero: full-viewport image with centered city name -->
   <section id="top" class="hero">
     <img
-      src={`https://picsum.photos/seed/${meta.slug}/2000/1000`}
+      src={meta.hero_image ?? `https://picsum.photos/seed/${meta.slug}/2000/1000`}
       alt={meta.name}
       class="hero-img"
     />
     <div class="hero-overlay"></div>
+
+    <!-- City picker -->
+    <header class="hero-header">
+      <div class="city-picker">
+        {otherCities.map((c, i) => (
+          <>
+            {i > 0 && <span class="city-picker-sep">/</span>}
+            <a
+              href={`/${c.slug}`}
+              class={`city-option${c.slug === meta.slug ? ' city-option--active' : ''}`}
+            >{c.name}</a>
+          </>
+        ))}
+      </div>
+    </header>
+
     <h1 class="hero-title">{meta.name}</h1>
     <div class="hero-branding">
       <div class="hero-branding-line"></div>
@@ -60,7 +78,7 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
 
   <!-- Rules -->
   {rules.length > 0 && (
-    <section class="section rules-section">
+    <section id="rules" class="section rules-section">
       <div class="section-inner">
         <h2 class="section-title">The Rules</h2>
         <div class="rules-list">
@@ -136,15 +154,35 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
   <div class="eot-block">
     <span class="eot-text">End of Transmission.</span>
   </div>
-  <footer class="site-footer">
-    <span class="footer-copy">© {new Date().getFullYear()} / Internal Use Only</span>
-  </footer>
 
   <StickyNav client:load />
 </Layout>
 
 <style>
   /* Hero */
+  .hero-header {
+    position: absolute; top: 0; left: 0;
+    width: 100%; padding: 2rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 10;
+  }
+  .city-picker {
+    display: flex; align-items: center; gap: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+  }
+  .city-option {
+    font-family: var(--sans); font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none; cursor: pointer; transition: opacity 0.2s;
+  }
+  .city-option--active { color: #fff; opacity: 1; }
+  .city-picker-sep { color: rgba(255,255,255,0.4); font-weight: 300; }
+
   .hero {
     position: relative;
     height: 85vh;
@@ -247,12 +285,12 @@ const { meta, places, neighborhoods, rules, lexicon, routes } = cityEntry.data;
     padding: 1.5rem 0; border-bottom: 1px solid var(--line); align-items: baseline;
   }
   .word { font-family: var(--serif); font-size: 1.8rem; color: var(--accent); }
-  .pronunciation { font-size: 0.75rem; color: var(--muted); font-family: monospace; letter-spacing: -0.02em; }
+  .pronunciation { font-size: 0.75rem; color: var(--muted); font-family: monospace; letter-spacing: -0.02em; padding-right: 1rem; }
   .meaning { font-size: 0.95rem; line-height: 1.5; color: var(--text); }
 
   /* Footer */
   .eot-block {
-    background: var(--surface); padding: 8rem 4vw; text-align: center;
+    padding: 8rem 4vw; text-align: center;
     display: flex; align-items: center; justify-content: center;
     border-top: 1px solid var(--line);
   }

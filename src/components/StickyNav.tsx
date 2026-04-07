@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Road, Signpost, ScrollText, BookA } from 'lucide-react';
 
 const SECTIONS = [
   {
@@ -6,52 +7,44 @@ const SECTIONS = [
     label: 'Back to Top',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <polyline points="17 11 12 6 7 11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <line x1="12" y1="6" x2="12" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
   },
   {
     id: 'intro',
-    label: 'Manifesto',
+    label: 'The Legend',
+    icon: <ScrollText size={20} aria-hidden="true" />,
+  },
+  {
+    id: 'rules',
+    label: 'The Rules',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" strokeWidth="2" />
-        <path d="M12 2a10 10 0 0 0-6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M12 2a10 10 0 0 1 6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="8" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="8" y1="12" x2="21" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="8" y1="18" x2="21" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="3" y1="6" x2="3.01" y2="6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="3" y1="12" x2="3.01" y2="12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="3" y1="18" x2="3.01" y2="18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
     ),
   },
   {
     id: 'spots',
-    label: 'Field Notes',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" fill="none" stroke="currentColor" strokeWidth="2" />
-        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2" />
-        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
+    label: 'The Spots',
+    icon: <Signpost size={20} aria-hidden="true" />,
   },
   {
     id: 'itineraries',
     label: 'Routes',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2" />
-        <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-      </svg>
-    ),
+    icon: <Road size={20} aria-hidden="true" />,
   },
   {
     id: 'lexicon',
     label: 'Vernacular',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
+    icon: <BookA size={20} aria-hidden="true" />,
   },
 ];
 

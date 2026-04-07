@@ -8,4 +8,5 @@ export interface Place {
   tip?: string;
   maps_url: string;
   image_query: string;
+  image?: string;
 }
