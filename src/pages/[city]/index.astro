@@ -31,6 +31,13 @@ const otherCities = allCities.map((c) => ({ slug: c.data.meta.slug, name: c.data
     <!-- City picker -->
     <header class="hero-header">
       <div class="city-picker">
+        <a href="/" class="city-option city-option--home" aria-label="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
+        <span class="city-picker-sep">/</span>
         {otherCities.map((c, i) => (
           <>
             {i > 0 && <span class="city-picker-sep">/</span>}
@@ -182,6 +189,8 @@ const otherCities = allCities.map((c) => ({ slug: c.data.meta.slug, name: c.data
   }
   .city-option--active { color: #fff; opacity: 1; }
   .city-picker-sep { color: rgba(255,255,255,0.4); font-weight: 300; }
+  .city-option--home { display: flex; align-items: center; opacity: 0.6; }
+  .city-option--home:hover { opacity: 1; }
 
   .hero {
     position: relative;
