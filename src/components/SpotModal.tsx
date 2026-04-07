@@ -49,10 +49,18 @@ export default function SpotModal({ place, onClose, onPrev, onNext }: SpotModalP
       }}
       onClick={onClose}
     >
+      <style>{`
+        @media (max-width: 640px) {
+          .spot-modal { grid-template-columns: 1fr !important; overflow-y: auto; }
+          .spot-modal-image { min-height: 260px !important; max-height: 300px !important; }
+          .spot-modal-nav { display: none !important; }
+        }
+      `}</style>
       {onPrev && (
         <button
           onClick={(e) => { e.stopPropagation(); onPrev(); }}
           aria-label="Previous spot"
+          className="spot-modal-nav"
           style={{
             position: 'fixed', left: '16px', top: '50%', transform: 'translateY(-50%)',
             background: 'rgba(249,247,241,0.95)', border: '1px solid #D5D1CB',
@@ -70,6 +78,7 @@ export default function SpotModal({ place, onClose, onPrev, onNext }: SpotModalP
         <button
           onClick={(e) => { e.stopPropagation(); onNext(); }}
           aria-label="Next spot"
+          className="spot-modal-nav"
           style={{
             position: 'fixed', right: '16px', top: '50%', transform: 'translateY(-50%)',
             background: 'rgba(249,247,241,0.95)', border: '1px solid #D5D1CB',
@@ -87,7 +96,9 @@ export default function SpotModal({ place, onClose, onPrev, onNext }: SpotModalP
         role="dialog"
         aria-modal="true"
         aria-labelledby="spot-modal-title"
+        className="spot-modal"
         style={{
+          position: 'relative',
           background: '#F2EFEA', borderRadius: '4px', overflow: 'hidden',
           maxWidth: '860px', width: '100%', maxHeight: '90vh',
           display: 'grid', gridTemplateColumns: '1fr 1fr',
@@ -95,7 +106,19 @@ export default function SpotModal({ place, onClose, onPrev, onNext }: SpotModalP
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div style={{ position: 'relative', minHeight: '400px', background: '#E3DFDA', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            position: 'absolute', top: '12px', right: '12px', zIndex: 10,
+            width: '32px', height: '32px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'rgba(242,239,234,0.92)', border: '1px solid #D5D1CB',
+            borderRadius: '50%', cursor: 'pointer',
+            color: '#2A2826', fontSize: '18px', lineHeight: 1,
+          }}
+        >×</button>
+        <div className="spot-modal-image" style={{ position: 'relative', minHeight: '400px', background: '#E3DFDA', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img
             src={imageUrl}
             alt={place.name}
@@ -103,15 +126,6 @@ export default function SpotModal({ place, onClose, onPrev, onNext }: SpotModalP
           />
         </div>
         <div style={{ padding: '40px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <button
-            onClick={onClose}
-            style={{
-              alignSelf: 'flex-end', background: 'none', border: 'none',
-              cursor: 'pointer', color: '#8A857D', fontSize: '20px', lineHeight: 1,
-              padding: '4px',
-            }}
-            aria-label="Close"
-          >×</button>
           <div>
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '10px' }}>
               <span style={{

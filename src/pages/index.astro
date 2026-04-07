@@ -5,13 +5,27 @@ import { getCollection } from 'astro:content';
 
 const cities = await getCollection('cities');
 ---
-<Layout title="loc_" description="Biased city guides from people who live there.">
+<Layout title="loc_" description="Biased city guides from me, who lived there.">
   <main>
-    <header class="site-header">
-      <span class="logo">loc_</span>
-      <p class="subtitle">Biased city guides from people who live there.</p>
-    </header>
+    <span class="logo">loc_</span>
     <div class="grid">
+      <div class="grid-text">
+        <p class="subtitle">Biased city guides from me, who lived there.</p>
+
+        <p class="subtitle">I lived in Istanbul for two years and in Barcelona for two and a half.
+        Friends kept asking me where to eat, what to do, where to walk,
+        and what was actually worth their time whenever they visited.
+        They asked because they trusted my taste.</p>
+
+        <p class="subtitle">I got tired of sending the same lists of links,
+        so I turned them into something better: short, personal city guides
+        written from lived experience, not from a short trip.</p>
+
+        <p class="subtitle">Each city page includes field notes on places, walking routes,
+        a local lexicon, and the unwritten rules that help you read the city properly.</p>
+
+        <p class="subtitle">Currently covering Istanbul and Barcelona.</p>
+      </div>
       {cities.map((city) => (
         <CityCard
           slug={city.data.meta.slug}
@@ -27,23 +41,28 @@ const cities = await getCollection('cities');
 
 <style>
   main { min-height: 100vh; padding: 60px 40px; }
-  .site-header {
-    margin-bottom: 48px;
-  }
   .logo {
     font-family: var(--serif);
     font-size: 32px;
     color: var(--text);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 48px;
   }
   .subtitle {
     font-size: 14px;
     color: var(--muted);
+    margin-bottom: 1rem;
   }
+  .subtitle:last-child { margin-bottom: 0; }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
     gap: 24px;
+  }
+  .grid-text {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 </style>

@@ -46,7 +46,7 @@ const otherCities = allCities.map((c) => ({ slug: c.data.meta.slug, name: c.data
     <h1 class="hero-title">{meta.name}</h1>
     <div class="hero-branding">
       <div class="hero-branding-line"></div>
-      <span class="hero-branding-text">loc<span class="hero-branding-accent">_</span></span>
+      <a href="/" class="hero-branding-text">loc_</a>
       <span class="hero-branding-sub">Local Guide Series</span>
     </div>
   </section>
@@ -216,10 +216,9 @@ const otherCities = allCities.map((c) => ({ slug: c.data.meta.slug, name: c.data
   }
   .hero-branding-line { width: 30px; height: 1px; background: rgba(255,255,255,0.4); }
   .hero-branding-text {
-    font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
-    color: rgba(255,255,255,0.7); letter-spacing: 0.25em; text-transform: uppercase; padding-top: 0.5rem;
+    font-family: var(--serif); font-size: 32px; font-weight: 400;
+    color: #fff; text-decoration: none; letter-spacing: 0; text-transform: none;
   }
-  .hero-branding-accent { color: var(--accent); }
   .hero-branding-sub {
     font-family: var(--sans); font-size: 0.65rem;
     color: rgba(255,255,255,0.5); letter-spacing: 0.15em; text-transform: uppercase;
